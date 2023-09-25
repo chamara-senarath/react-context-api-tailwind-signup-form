@@ -12,7 +12,7 @@ const SignupForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    validateInputs(formValues);
+    validateInputs();
   };
 
   return (

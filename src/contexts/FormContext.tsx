@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, createContext, useState } from "react";
 
-export type FormValues = {
+type FormValues = {
   firstName: string;
   lastName: string;
   email: string;
@@ -22,10 +22,10 @@ export interface FormContextInterface {
   formValues: FormValues;
   setFormValues: Dispatch<SetStateAction<FormValues>>;
   inputErrors: InputErrors;
-  validateInputs: Dispatch<FormValues>;
+  validateInputs: Dispatch<void>;
 }
 
-const defaultState = {
+const initialState = {
   formValues: {
     firstName: "",
     lastName: "",
@@ -42,18 +42,18 @@ const defaultState = {
   validateInputs: () => {},
 } as FormContextInterface;
 
-export const FormContext = createContext(defaultState);
+export const FormContext = createContext(initialState);
 
 export const FormContextProvider = ({ children }: FormContextProviderProps) => {
   const [formValues, setFormValues] = useState<FormValues>(
-    defaultState.formValues
+    initialState.formValues
   );
 
   const [inputErrors, setInputErrors] = useState<InputErrors>(
-    defaultState.inputErrors
+    initialState.inputErrors
   );
 
-  const validateInputs = (formValues: FormValues): boolean => {
+  const validateInputs = (): boolean => {
     const { firstName, lastName, email, password } = formValues;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
