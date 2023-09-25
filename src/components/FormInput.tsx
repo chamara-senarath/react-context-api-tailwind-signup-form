@@ -11,10 +11,10 @@ type FormInputProps = {
 
 const FormInput = (props: FormInputProps) => {
   return (
-    <>
-      <input {...props} />
-      {props.error && <p className="error">{props.error}</p>}
-    </>
+    <div className="flex flex-col space-y-2">
+      <input className={`outline outline-1 ${props.error ? "outline-primary-red": "outline-neutral-grayishBlue"}  focus:outline-neutral-darkBlue rounded-md py-4 px-8`} {...props} />
+      {props.error && <p className="text-primary-red text-sm italic text-right">{props.error}</p>}
+    </div>
   );
 };
 export default FormInput;

@@ -1,11 +1,11 @@
-import SignupForm from "./components/SignupForm";
+import Signup from "./components/Signup";
 import { FormContextProvider } from "./contexts/FormContext";
 
 function App() {
   return (
     <>
       <FormContextProvider>
-        <SignupForm />
+        <Signup />
       </FormContextProvider>
     </>
   );
