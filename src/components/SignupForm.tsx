@@ -16,7 +16,7 @@ const SignupForm = () => {
   };
 
   return (
-    <form className="flex flex-col rounded-md p-8 drop-shadow-lg space-y-4 bg-white" onSubmit={handleSubmit}>
+    <form className="flex flex-col rounded-md p-8 shadow-[0px_8px_0px_0px] shadow-neutral-darkBlue/20 space-y-4 bg-white" onSubmit={handleSubmit}>
       <FormInput
         type="text"
         name="firstName"
@@ -49,8 +49,8 @@ const SignupForm = () => {
         value={formValues.password}
         error={inputErrors.passwordError}
       ></FormInput>
-      <button className="p-4 bg-primary-green rounded-md drop-shadow-lg uppercase text-white">Claim your free trial</button>
-      <p className="text-neutral-grayishBlue">By clicking the button, you are agreeing to our <a className="text-primary-red">Terms of Service</a></p>
+      <button className="p-4 bg-primary-green shadow-[0px_2px_0px_0px] shadow-primary-green/50 rounded-md uppercase text-white text-sm">Claim your free trial</button>
+      <p className="text-neutral-grayishBlue text-xs text-center">By clicking the button, you are agreeing to our <a className="text-primary-red">Terms of Service</a></p>
     </form>
   );
 };
