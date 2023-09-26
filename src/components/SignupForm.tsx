@@ -1,22 +1,28 @@
 import { useContext } from "react";
 import FormInput from "./FormInput";
 import { FormContext } from "../contexts/FormContext";
+import { InputErrorContext } from "../contexts/InputErrorContext";
 
 const SignupForm = () => {
-  const { formValues, setFormValues, validateInputs, inputErrors } =
-    useContext(FormContext);
+  const { formValues, setFormValues } = useContext(FormContext);
+  const { inputErrors, validateInputs } = useContext(InputErrorContext);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    const values = { ...formValues, [e.target.name]: e.target.value };
+    validateInputs(values);
+    setFormValues(values);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    validateInputs();
+    validateInputs(formValues);
   };
 
   return (
-    <form className="flex flex-col rounded-md p-8 shadow-[0px_8px_0px_0px] shadow-neutral-darkBlue/20 space-y-4 bg-white" onSubmit={handleSubmit}>
+    <form
+      className="flex flex-col rounded-md p-8 shadow-[0px_8px_0px_0px] shadow-neutral-darkBlue/20 space-y-4 bg-white"
+      onSubmit={handleSubmit}
+    >
       <FormInput
         type="text"
         name="firstName"
@@ -49,8 +55,13 @@ const SignupForm = () => {
         value={formValues.password}
         error={inputErrors.passwordError}
       ></FormInput>
-      <button className="p-4 bg-primary-green shadow-[0px_2px_0px_0px] shadow-primary-green/50 rounded-md uppercase text-white text-sm">Claim your free trial</button>
-      <p className="text-neutral-grayishBlue text-xs text-center">By clicking the button, you are agreeing to our <a className="text-primary-red">Terms of Service</a></p>
+      <button className="p-4 bg-primary-green shadow-[0px_2px_0px_0px] shadow-primary-green/50 rounded-md uppercase text-white text-sm">
+        Claim your free trial
+      </button>
+      <p className="text-neutral-grayishBlue text-xs text-center">
+        By clicking the button, you are agreeing to our{" "}
+        <a className="text-primary-red">Terms of Service</a>
+      </p>
     </form>
   );
 };
