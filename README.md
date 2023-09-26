@@ -1,27 +1,50 @@
-# React + TypeScript + Vite
+# Signup Form with React, TypeScript, and Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a responsive signup form built using TypeScript, React, and Tailwind CSS. It allows users to sign up and provides real-time validation feedback.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design for mobile and desktop devices.
+- Real-time form validation:
+  - Fields cannot be empty.
+  - Email address format validation.
+- Separate business logic from UI components using React patterns.
+- Form state management with React Context API.
+- Utilizes Tailwind CSS for styling.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone https://github.com/chamara-senarath/react-context-api-tailwind-signup-form
+   ```
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+2. Navigate to the project directory:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   cd react-context-api-tailwind-signup-form
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open your web browser and access the form at `http://localhost:3000`.
+
+## Form Validation
+
+- Fields cannot be empty. If a field is empty, an error message will display, indicating which field is required.
+- Email address format is validated. If an invalid email format is entered, an error message will display.
+
+## State Management
+
+The form state and error messages are managed using React Context API. This ensures a clean separation of concerns between UI components and business logic.
